@@ -1,0 +1,124 @@
+body {
+    /* background: linear-gradient(to right, rgba(141, 194, 111, 0.5), rgba(118, 184, 82, 0.9)); */
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbK2d2vHfcmFxegKlQauT-bo96t0_RJcX1Ag&usqp=CAU");
+    font-family: 'Rubik', sans-serif;
+
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+
+}
+
+.inputStyle {
+    width: 50%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 20px;
+    border: 3px solid #27550e;
+    margin-right: 10px;
+
+
+}
+
+.searchButton {
+    height: 55px;
+    font-size: 20px;
+    border-radius: 5px;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    background: #27550e;
+    border: none;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+.searchButton:hover {
+    color: lightgreen;
+    transform: scale(1.1)
+}
+
+.title {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    font-size: 40px;
+    color: white;
+    text-shadow: 2px 4px 4px 4px rgba(5, 15, 33, 0.6);
+}
+
+.recipeTitle {
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    margin-bottom: 100px;
+    text-shadow: 2px 4px 4px 4px rgba(5, 15, 33, 0.6);
+}
+
+.imageContainer {
+    display: inline-block;
+    justify-content: start;
+    align-items: center;
+    border-radius: 50px;
+    margin-right: 100px;
+}
+
+.recipeImage {
+    border-radius: 30px;
+}
+
+.ingredients {
+    display: inline-block;
+    /* color: #27550e; */
+    color: white;
+    text-shadow: 2px 4px 4px 4px rgba(5, 15, 33, 0.6);
+    font-family: 'Rubik', sans-serif;
+    font-size: 25px;
+    width: auto;
+
+
+}
+
+.backButtonContainer {
+    height: 30px;
+    width: 120px;
+    font-size: 25px;
+    border-radius: 5px;
+    background: #27550e;
+    border: none;
+    margin-top: 30px;
+}
+
+.backButton {
+    text-decoration: none;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backButton:hover {
+    color: lightgreen;
+}
+
+.errorPage {
+    display: flex;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    
+
+
+}
