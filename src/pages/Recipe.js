@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import Loader from '../components/Loader'
+import { htttpGetRecipe } from '../https/index';
 
-const API_KEY = "e509af0f80c74a1ea7d9794a7b97394c";
+const API_KEY = "dfa0b7d8eb2f4541a7848230d205f7b4";
 const API_SPOONACULAR = 'https://api.spoonacular.com/recipes'
 
 
@@ -13,7 +15,7 @@ function Recipe() {
 
   const singleRecipe = async () => {
     try {
-      const res = await axios.get(`${API_SPOONACULAR}/${id}/information?apiKey=${API_KEY}`)
+      const res = await htttpGetRecipe(id)
       setRecipe(res.data);
     } catch (error) {
       console.log(error);
@@ -26,7 +28,9 @@ function Recipe() {
 
   if (!recipe) {
     return (
-      <div>Loading</div>
+      <div>
+       <Loader/>
+      </div>
     )
   }
 

@@ -2,10 +2,8 @@ import { createUseStyles } from 'react-jss'
 import "./App.css";
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import axios from 'axios';
 import Input from './components/Input';
-
-const API_SPOONACULAR = 'https://api.spoonacular.com/recipes'
+import { httpSearchRecipe } from './https/index';
 
 const useStyles = createUseStyles({
   recipes: {
@@ -43,52 +41,47 @@ const useStyles = createUseStyles({
     display: 'flex',
     justifyContent: 'center',
     color: 'red'
-
-
-
-
   },
-  
-
-
 })
+
 
 
 function App() {
   const classes = useStyles()
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(false);
   const [search, setSearch] = useState("bean")
   const [error, setError] = useState(false);
 
-
   const searchRecipe = async () => {
     try {
-      const res = await axios.get(`${API_SPOONACULAR}/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${search}&diet=vegetarian`);
-
+      setIsDisabled(true);
+      const res = await httpSearchRecipe(search)
       if (res.data.results.length === 0) {
         setError(true);
       } else {
         setRecipes(res.data.results);
         setError(false);
       }
-
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsDisabled(false);
     }
-  };
+  }
 
   return (
     <div className={classes.container}>
       <h1 className='title'> Welcome to VegetariAPP! </h1>
       <div>
         <div className='searchContainer'>
-          <Input setValue={setSearch} />
-          <button className="searchButton" onClick={() => searchRecipe()}>Search a recipe!</button>
+          <Input setValue={setSearch} disabled={isDisabled} />
+          <button disabled={isDisabled} className="searchButton" onClick={() => searchRecipe(search)}>Search a recipe!</button>
         </div>
       </div>
       {error && (
         <div className={classes.errorSearch}>
-          <p> No recipes found for <span style={ { fontSize: "35px"}}>{search}</span> ! </p> 
+          <p> No recipes found for <span style={{ fontSize: "35px" }}>{search}</span> ! </p>
           {/* <div> Try Again </div> */}
         </div>
       )}
