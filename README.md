@@ -19,7 +19,7 @@ Also, it has been used these libraries:
 
 ## Try it!
 
-Try the VegetariAPP [here](https://vegetariapp.netlify.app/)!
+Try the VegetariAPP [here](https://vegerariapp.netlify.app/)!
 
 ## Authors
 
